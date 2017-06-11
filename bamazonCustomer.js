@@ -27,6 +27,7 @@ let start = () => {
     let allProducts = {
         statement: `SELECT item_id ID, product_name Product, department_name Department, price Price, stock_quantity Stock FROM Products`,
         callback: (result) => {
+            console.log('\033[2J');
             productsObj = result;
             console.log('\n');
             console.table(result);

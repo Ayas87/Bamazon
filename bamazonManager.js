@@ -27,6 +27,7 @@ let start = () => {
     let viewProducts = {
         statement: `SELECT item_id ID, product_name Product, department_name Department, price Price, stock_quantity Stock FROM Products`,
         callback: (result) => {
+            console.log('\033[2J');
             productsObj = result;
             console.log('\n');
             console.table(result);
@@ -37,6 +38,7 @@ let start = () => {
     let viewLowInventory = {
         statement: `SELECT item_id ID, product_name Product, department_name Department, price Price, stock_quantity Stock FROM Products WHERE stock_quantity <= 5`,
         callback: (result) => {
+            console.log('\033[2J');
             productsObj = result;
             console.log('\n');
             console.table(result);
