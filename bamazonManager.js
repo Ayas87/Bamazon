@@ -123,36 +123,35 @@ let start = () => {
                             }
                         }
                         inquirer.prompt([{
-                            name: 'department',
-                            message: 'What department do you want to add your product to?',
-                            type: 'list',
-                            choices: departments
-                        },
-                        {
-                            name: 'product',
-                            message: 'What is the name of the product do you want to add?',
-                            type: 'input',
-                        },
-                        {
-                            name: 'price',
-                            message: 'How much does each item cost?',
-                            type: 'input',
-                        },
-                        {
-                            name: 'stock',
-                            message: 'How many do you want to add?',
-                            type: 'input',
-                        },
+                                name: 'department',
+                                message: 'What department do you want to add your product to?',
+                                type: 'list',
+                                choices: departments
+                            },
+                            {
+                                name: 'product',
+                                message: 'What is the name of the product do you want to add?',
+                                type: 'input',
+                            },
+                            {
+                                name: 'price',
+                                message: 'How much does each item cost?',
+                                type: 'input',
+                            },
+                            {
+                                name: 'stock',
+                                message: 'How many do you want to add?',
+                                type: 'input',
+                            },
                         ]).then((result) => {
                             let department = result.department;
                             let product = result.product;
                             let price = result.price;
                             let stock = result.stock;
-                            console.log(product,department, price, stock);
+                            console.log(product, department, price, stock);
                             let addNewItem = {
                                 statement: `INSERT INTO Products (product_name, department_name, price ,stock_quantity) VALUES ('${product}', '${department}', ${price}, ${stock})`,
-                                // statement: 'SELECT * FROM Products',
-                                callback: (result)=>{
+                                callback: (result) => {
                                     console.log(`${stock} ${product} was added to ${department} for ${price} per unit.`);
                                     start();
                                 }
